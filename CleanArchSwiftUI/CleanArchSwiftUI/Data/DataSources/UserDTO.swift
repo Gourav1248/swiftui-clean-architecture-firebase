@@ -24,6 +24,30 @@ struct UserDTO: Codable {
    var isActive: Bool
    var createdAt: Date
 
+
+   static func fromFirestore(uid: String, data: [String: Any]) -> UserDTO {
+
+      let createdAtDate: Date
+      if let timestamp = data["createdAt"] as? Timestamp {
+         createdAtDate = timestamp.dateValue()
+      } else {
+         createdAtDate = Date()
+      }
+
+      return UserDTO(
+         uid         : uid,
+         firstName   : data["firstName"] as? String ?? "",
+         lastName    : data["lastName"]  as? String ?? "",
+         email       : data["email"]     as? String ?? "",
+         phone       : data["phone"]     as? String ?? "",
+         address     : data["address"]   as? String ?? "",
+         city        : data["city"]      as? String ?? "",
+         gender      : data["gender"]    as? String ?? "",
+         isActive    : data["isActive"]  as? Bool   ?? true,
+         createdAt   : createdAtDate
+      )
+   }
+
    // MARK: - Firestore document dictionary
    var dictionary: [String: Any] {
       return [
