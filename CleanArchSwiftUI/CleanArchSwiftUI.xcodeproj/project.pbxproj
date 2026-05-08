@@ -29,6 +29,14 @@
 		D7D0CE0A2FAB73E700F985A5 /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D0CE092FAB73E700F985A5 /* UserRepositoryProtocol.swift */; };
 		D7D0CE0C2FAB744100F985A5 /* StoreRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D0CE0B2FAB744100F985A5 /* StoreRepositoryProtocol.swift */; };
 		D7D0CE0E2FAB748100F985A5 /* CategoryRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D0CE0D2FAB748100F985A5 /* CategoryRepositoryProtocol.swift */; };
+		D7F67CEE2FADE1030019D95B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CED2FADE1030019D95B /* CustomTextField.swift */; };
+		D7F67CF12FADE29A0019D95B /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF02FADE29A0019D95B /* AppTheme.swift */; };
+		D7F67CF32FADE4090019D95B /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF22FADE4090019D95B /* ButtonStyles.swift */; };
+		D7F67CF52FADE5780019D95B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF42FADE5780019D95B /* PrimaryButton.swift */; };
+		D7F67CF72FADE60C0019D95B /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF62FADE60C0019D95B /* SecondaryButton.swift */; };
+		D7F67CF92FADE6E70019D95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF82FADE6E70019D95B /* LoginView.swift */; };
+		D7F67CFB2FADF3850019D95B /* AuthDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CFA2FADF3850019D95B /* AuthDivider.swift */; };
+		D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67D002FAE03690019D95B /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +79,14 @@
 		D7D0CE092FAB73E700F985A5 /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		D7D0CE0B2FAB744100F985A5 /* StoreRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRepositoryProtocol.swift; sourceTree = "<group>"; };
 		D7D0CE0D2FAB748100F985A5 /* CategoryRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepositoryProtocol.swift; sourceTree = "<group>"; };
+		D7F67CED2FADE1030019D95B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		D7F67CF02FADE29A0019D95B /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		D7F67CF22FADE4090019D95B /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
+		D7F67CF42FADE5780019D95B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		D7F67CF62FADE60C0019D95B /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
+		D7F67CF82FADE6E70019D95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D7F67CFA2FADF3850019D95B /* AuthDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDivider.swift; sourceTree = "<group>"; };
+		D7F67D002FAE03690019D95B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +129,7 @@
 		D72DC11A2FAA22A000194998 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				D7F67CEB2FADDC510019D95B /* Design Systems */,
 				D79F2EC02FAC88AD007EE77B /* AppError.swift */,
 			);
 			path = Core;
@@ -130,6 +147,7 @@
 		D72DC11C2FAA22A000194998 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D7F67CFD2FADFD8D0019D95B /* Auth */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -247,6 +265,60 @@
 				D7D0CE0D2FAB748100F985A5 /* CategoryRepositoryProtocol.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		D7F67CEB2FADDC510019D95B /* Design Systems */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67CEF2FADE2080019D95B /* Foundations */,
+				D7F67CEC2FADDC5F0019D95B /* Components */,
+			);
+			path = "Design Systems";
+			sourceTree = "<group>";
+		};
+		D7F67CEC2FADDC5F0019D95B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67CED2FADE1030019D95B /* CustomTextField.swift */,
+				D7F67CF42FADE5780019D95B /* PrimaryButton.swift */,
+				D7F67CF62FADE60C0019D95B /* SecondaryButton.swift */,
+				D7F67CFA2FADF3850019D95B /* AuthDivider.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D7F67CEF2FADE2080019D95B /* Foundations */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67CF02FADE29A0019D95B /* AppTheme.swift */,
+				D7F67CF22FADE4090019D95B /* ButtonStyles.swift */,
+			);
+			path = Foundations;
+			sourceTree = "<group>";
+		};
+		D7F67CFD2FADFD8D0019D95B /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67CFF2FADFDB80019D95B /* ViewModels */,
+				D7F67CFE2FADFDA80019D95B /* Views */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		D7F67CFE2FADFDA80019D95B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67CF82FADE6E70019D95B /* LoginView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7F67CFF2FADFDB80019D95B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				D7F67D002FAE03690019D95B /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,19 +459,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7F67CF52FADE5780019D95B /* PrimaryButton.swift in Sources */,
 				D7D0CDFF2FAB33EC00F985A5 /* Store.swift in Sources */,
+				D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */,
 				D7D0CE052FAB6FDB00F985A5 /* CategoryDTO.swift in Sources */,
 				D72DC1182FAA225400194998 /* CleanArchSwiftUIApp.swift in Sources */,
 				D72DC1192FAA225400194998 /* ContentView.swift in Sources */,
 				D79F2EC12FAC88AD007EE77B /* AppError.swift in Sources */,
 				D7D0CDFD2FAB2B1D00F985A5 /* UserDTO.swift in Sources */,
+				D7F67CEE2FADE1030019D95B /* CustomTextField.swift in Sources */,
 				D7D0CDFA2FAB2A9500F985A5 /* User.swift in Sources */,
 				D7D0CE0E2FAB748100F985A5 /* CategoryRepositoryProtocol.swift in Sources */,
+				D7F67CF72FADE60C0019D95B /* SecondaryButton.swift in Sources */,
+				D7F67CF32FADE4090019D95B /* ButtonStyles.swift in Sources */,
 				D7D0CE0C2FAB744100F985A5 /* StoreRepositoryProtocol.swift in Sources */,
 				D7D0CE0A2FAB73E700F985A5 /* UserRepositoryProtocol.swift in Sources */,
 				D79F2EC42FAC8A58007EE77B /* FirebaseAuthRepository.swift in Sources */,
 				D7D0CE012FAB396900F985A5 /* StoreDTO.swift in Sources */,
+				D7F67CF12FADE29A0019D95B /* AppTheme.swift in Sources */,
 				D7D0CE082FAB72FC00F985A5 /* AuthRepositoryProtocol.swift in Sources */,
+				D7F67CFB2FADF3850019D95B /* AuthDivider.swift in Sources */,
+				D7F67CF92FADE6E70019D95B /* LoginView.swift in Sources */,
 				D7D0CE032FAB6F5F00F985A5 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

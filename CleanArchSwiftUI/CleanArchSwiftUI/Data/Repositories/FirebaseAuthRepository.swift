@@ -61,19 +61,48 @@ final class FirebaseAuthRepository: AuthRepositoryProtocol {
    }
 
    func forgotPasswordRequest(email: String) async throws {
-      <#code#>
+      try await auth.sendPasswordReset(withEmail: email)
    }
 
-   func changePasswordRequest(currentPassword: String, newPassword: String) async throws {
-      <#code#>
+   // MARK: - Change Password
+   func changePasswordRequest(currentPassword: String,
+                              newPassword: String) async throws {
+
+      guard let currentUser = auth.currentUser,
+            let email = currentUser.email else {
+         throw AppError.userNotFound
+      }
+
+      // Re-authenticate first — Firebase requires this for sensitive ops
+      let credential = EmailAuthProvider.credential(withEmail: email,
+                                                    password: currentPassword)
+      try await currentUser.reauthenticate(with: credential)
+
+      // Then update password
+      try await currentUser.updatePassword(to: newPassword)
    }
 
+   // MARK: - Logout
    func logoutRequest() throws {
-      <#code#>
+      try auth.signOut()
    }
 
+   // MARK: - Get Current User
    func getCurrentUserRequest() -> User? {
-      <#code#>
+      guard let firebaseUser = auth.currentUser else { return nil }
+
+      return User(
+         uid             : firebaseUser.uid,
+         firstName       : "",
+         lastName        : "",
+         email           : firebaseUser.email ?? "",
+         phone           : "",
+         address         : "",
+         city            : "",
+         gender          : "",
+         isActive        : true,
+         createdAt       : Date()
+      )
    }
 
 
