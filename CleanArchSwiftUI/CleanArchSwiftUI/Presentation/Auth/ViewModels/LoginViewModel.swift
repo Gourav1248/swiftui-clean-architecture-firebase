@@ -24,7 +24,15 @@ final class LoginViewModel: ObservableObject {
    @Published var emailError: String? = nil
    @Published var passwordError: String? = nil
 
-   
+   // MARK: - Dependencies (injected)
+   private let loginUseCase: LoginUseCaseProtocol
+
+   // MARK: - Init
+   init(loginUseCase: LoginUseCaseProtocol = LoginUseCase(repository: FirebaseAuthRepository())) {
+      self.loginUseCase = loginUseCase
+   }
+
+   @Published var currentUser: User? = nil  // ✅ add this
 
 
    // MARK: - Computed
@@ -44,11 +52,12 @@ final class LoginViewModel: ObservableObject {
       loginSucceeded = false
 
       do {
-         try await loginUseCase.execute(
+        let user =  try await loginUseCase.execute(
             email: email.trimmingCharacters(in: .whitespaces),
             password: password
          )
          loginSucceeded = true
+         currentUser = user
       } catch AuthError.invalidCredentials {
          generalError = "Incorrect email or password. Please try again."
       } catch AuthError.networkUnavailable {

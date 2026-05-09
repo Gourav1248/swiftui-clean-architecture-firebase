@@ -12,7 +12,7 @@ struct LoginView: View {
    @StateObject private var viewModel = LoginViewModel()
 
    // Navigation callbacks — wired by AppCoordinator
-   var onLoginSuccess: (() -> Void)? = nil
+   var onLoginSuccess: ((User?) -> Void)? = nil
    var onSignupTap: (() -> Void)? = nil
    var onForgotPasswordTap: (() -> Void)? = nil
 
@@ -106,7 +106,7 @@ struct LoginView: View {
                   Task {
                      await viewModel.login()
                      if viewModel.loginSucceeded {
-                        onLoginSuccess?()
+                        onLoginSuccess?(viewModel.currentUser)
                      }
                   }
                }
