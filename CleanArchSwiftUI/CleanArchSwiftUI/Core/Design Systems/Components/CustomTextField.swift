@@ -36,12 +36,22 @@ struct CustomTextField: View {
 
             Group {
                if isSecure && !isRevealed {
-                  SecureField(placeholder, text: $text)
-                     .foregroundColor(.black)
+                  SecureField(
+                     "",
+                     text: $text,
+                     prompt: Text(placeholder)
+                        .foregroundColor(.gray.opacity(0.75))  // ✅ placeholder gray
+                  )
+                  .foregroundColor(.black)
                } else {
-                  TextField(placeholder, text: $text)
-                     .keyboardType(keyboardType)
-                     .foregroundColor(.black)
+                  TextField(
+                     "",
+                     text: $text,
+                     prompt: Text(placeholder)
+                        .foregroundColor(.gray.opacity(0.75))  // ✅ placeholder gray
+                  )
+                  .keyboardType(keyboardType)
+                  .foregroundColor(.black)
                }
             }
             .textContentType(textContentType)
@@ -75,7 +85,6 @@ struct CustomTextField: View {
          )
          .animation(.easeInOut(duration: 0.2), value: isFocused)
       }
-      //.animation(.easeInOut(duration: 0.2), value: errorMessage)
    }
 }
 
