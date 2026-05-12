@@ -48,7 +48,7 @@ struct AuthHeader: View {
 
             Text(subtitle)
                .font(.system(size: 15))
-               .foregroundColor(.secondary)
+               .foregroundColor(.black)
                .multilineTextAlignment(.center)
          }
       }
@@ -66,7 +66,7 @@ struct AuthFooterLink: View {
       HStack(spacing: 4) {
          Text(prompt)
             .font(.system(size: 14))
-            .foregroundColor(.secondary)
+            .foregroundColor(.black)
          Button(action: action) {
             Text(actionTitle)
                .font(.system(size: 14, weight: .semibold))

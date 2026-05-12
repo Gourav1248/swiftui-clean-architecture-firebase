@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 import Combine
 
+@MainActor
 final class LoginViewModel: ObservableObject {
 
    // MARK: - Input (bound to View)
@@ -112,5 +113,6 @@ final class LoginViewModel: ObservableObject {
 enum AuthError: Error {
    case invalidCredentials
    case networkUnavailable
+   case emailAlreadyInUse
    case unknown
 }

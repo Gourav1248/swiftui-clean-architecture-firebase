@@ -11,28 +11,30 @@ import FirebaseFirestore
 
 final class FirebaseAuthRepository: AuthRepositoryProtocol {
 
+
+
    private let db = Firestore.firestore()
    private let auth = Auth.auth()
 
-   func signUpRequest(email: String, password: String, user: User) async throws -> User {
+
+   func signUpRequest(_ request: SignUpRequestModel) async throws -> User {
 
       // Step 1: Firebase Auth me user create karo
-      let authResult = try await auth.createUser(withEmail: email, password: password)
+      let authResult = try await auth.createUser(withEmail: request.email, password: request.password)
       let uid = authResult.user.uid
 
       //Step 2: Domain user me uid set karo
-      var newUser = user
-      newUser = User(
+      let newUser = User(
          uid             : uid,
-         firstName       : user.firstName,
-         lastName        : user.lastName,
-         email           : user.email,
-         phone           : user.phone,
-         address         : user.address,
-         city            : user.city,
-         gender          : user.gender,
-         isActive        : user.isActive,
-         createdAt       : user.createdAt
+         firstName       : request.firstName,
+         lastName        : request.lastName,
+         email           : request.email,
+         phone           : request.phone,
+         address         : request.address,
+         city            : request.city,
+         gender          : request.gender,
+         isActive        : true,
+         createdAt       : request.createdAt
       )
 
       // Step 3: Firestore me user document save karo

@@ -12,11 +12,13 @@ struct AppTheme {
    // Colors
    static let primary = Color("Primary") // #4F46E5 Indigo
    static let background = Color("Background")
+   static let white = Color.white
    static let surface = Color("Surface")
    static let textPrimary = Color("TextPrimary")
    static let textSecondary = Color("TextSecondary")
    static let border = Color("Border")
    static let error = Color.red.opacity(0.85)
+   static let lightGray = Color.gray.opacity(0.45)
 
    // Typography
    static let fontDisplay = "Georgia" // Refined serif for headings

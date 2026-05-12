@@ -15,13 +15,15 @@ struct LoginView: View {
    var onLoginSuccess: ((User?) -> Void)? = nil
    var onSignupTap: (() -> Void)? = nil
    var onForgotPasswordTap: (() -> Void)? = nil
+   @EnvironmentObject var router: AppRouter
 
    @State private var appeared = false
 
    var body: some View {
       ZStack {
-         AppTheme.background
+         AppTheme.white
             .ignoresSafeArea()
+         
 
          ScrollView(showsIndicators: false) {
             VStack(spacing: 0) {
@@ -132,7 +134,7 @@ struct LoginView: View {
                   prompt: "Don't have an account?",
                   actionTitle: "Sign up"
                ) {
-                  onSignupTap?()
+                  router.push(.signup)
                }
                .padding(.top, AppTheme.spacingXL)
                .padding(.bottom, 48)

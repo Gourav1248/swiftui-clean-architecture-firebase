@@ -24,12 +24,12 @@ struct CustomTextField: View {
       VStack(alignment: .leading, spacing: 6) {
          Text(label)
             .font(.system(size: 13, weight: .medium))
-            .foregroundColor(.primary.opacity(0.7))
+            .foregroundColor(.black.opacity(0.7))
 
          HStack(spacing: 10) {
             if let icon = icon {
                Image(systemName: icon)
-                  .foregroundColor(isFocused ? .indigo : .secondary)
+                  .foregroundColor(isFocused ? .indigo : .black)
                   .frame(width: 18)
                   .animation(.easeInOut(duration: 0.2), value: isFocused)
             }
@@ -37,9 +37,11 @@ struct CustomTextField: View {
             Group {
                if isSecure && !isRevealed {
                   SecureField(placeholder, text: $text)
+                     .foregroundColor(.black)
                } else {
                   TextField(placeholder, text: $text)
                      .keyboardType(keyboardType)
+                     .foregroundColor(.black)
                }
             }
             .textContentType(textContentType)
@@ -53,7 +55,7 @@ struct CustomTextField: View {
                   isRevealed.toggle()
                } label: {
                   Image(systemName: isRevealed ? "eye.slash" : "eye")
-                     .foregroundColor(.secondary)
+                     .foregroundColor(.black)
                      .frame(width: 20)
                }
             }
@@ -62,7 +64,7 @@ struct CustomTextField: View {
          .padding(.vertical, 13)
          .background(
             RoundedRectangle(cornerRadius: 12)
-               .fill(Color(.systemBackground))
+               .fill(Color(.init(gray: 0.75, alpha: 0.45)))
                .overlay(
                   RoundedRectangle(cornerRadius: 12)
                      .strokeBorder(
