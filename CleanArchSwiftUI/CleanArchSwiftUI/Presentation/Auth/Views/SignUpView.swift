@@ -16,6 +16,7 @@ struct SignUpView: View {
 
    @StateObject private var viewModel = SignUpViewModel()
    @State private var appeared = false
+   @EnvironmentObject var alertManager: AlertManager
 
    var onSignupSuccess: ((User?) -> Void)? = nil
    var onLoginTap: (() -> Void)? = nil
@@ -51,14 +52,12 @@ struct SignUpView: View {
                            placeholder: "Gourav",
                            icon: "person",
                            textContentType: .givenName,
-                           errorMessage: viewModel.firstNameError,
                            text: $viewModel.firstName
                         )
                         CustomTextField(
                            label: "Last Name",
                            placeholder: "Joshi",
                            textContentType: .familyName,
-                           errorMessage: viewModel.lastNameError,
                            text: $viewModel.lastName
                         )
                      }
@@ -79,7 +78,6 @@ struct SignUpView: View {
                         icon: "envelope",
                         keyboardType: .emailAddress,
                         textContentType: .emailAddress,
-                        errorMessage: viewModel.emailError,
                         text: $viewModel.email
                      )
 
@@ -89,7 +87,6 @@ struct SignUpView: View {
                         icon: "phone",
                         keyboardType: .phonePad,
                         textContentType: .telephoneNumber,
-                        errorMessage: viewModel.phoneError,
                         text: $viewModel.phone
                      )
 
@@ -104,7 +101,6 @@ struct SignUpView: View {
                      placeholder: "45-B, Indira Gandhi Nagar",
                      icon: "house",
                      textContentType: .streetAddressLine1,
-                     errorMessage: viewModel.addressError,
                      text: $viewModel.address
                   )
 
@@ -113,7 +109,6 @@ struct SignUpView: View {
                      placeholder: "Indore",
                      icon: "building.2",
                      textContentType: .addressCity,
-                     errorMessage: viewModel.cityError,
                      text: $viewModel.city
                   )
 
@@ -127,7 +122,6 @@ struct SignUpView: View {
                      icon: "lock",
                      isSecure: true,
                      textContentType: .newPassword,
-                     errorMessage: viewModel.passwordError,
                      text: $viewModel.password
                   )
 
@@ -137,8 +131,7 @@ struct SignUpView: View {
                      icon: "lock.rotation",
                      isSecure: true,
                      textContentType: .newPassword,
-                     errorMessage: viewModel.confirmPasswordError,
-                     text: $viewModel.confirmPassword 
+                     text: $viewModel.confirmPassword
                   )
 
                }
@@ -203,6 +196,11 @@ struct SignUpView: View {
       }
       .animation(.easeOut(duration: 0.4), value: viewModel.generalError)
       .onAppear { appeared = true }
+      .onChange(of: viewModel.alertMessage?.id) { _ in
+         guard let alert = viewModel.alertMessage else { return }
+         alertManager.showError(title: "Alert", message: alert.message)
+      }
+      .withAlert(alertManager)
    }
 }
 

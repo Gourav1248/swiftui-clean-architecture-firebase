@@ -41,17 +41,8 @@ final class SignUpViewModel: ObservableObject {
    @Published var password:        String = ""
    @Published var confirmPassword: String = ""
    @Published var selectedGender:  Gender = .male
-
-
-   // MARK: - Field Errors
-   @Published var firstNameError:       String? = nil
-   @Published var lastNameError:        String? = nil
-   @Published var emailError:           String? = nil
-   @Published var phoneError:           String? = nil
-   @Published var addressError:         String? = nil
-   @Published var cityError:            String? = nil
-   @Published var passwordError:        String? = nil
-   @Published var confirmPasswordError: String? = nil
+   @Published var strValidationalError: String? = nil
+   @Published var alertMessage: (id: UUID, message: String)? = nil
 
    // MARK: - State
    @Published var isLoading:       Bool  = false
@@ -82,99 +73,71 @@ final class SignUpViewModel: ObservableObject {
    // MARK: - Signup
 
    func signup() async {
-      guard validateFields() else { return }
 
-      isLoading = true
-      generalError = nil
-      signupSucceeded = false
+      let strMsg = validateFields()
+      if strMsg.count > 0 {
+         generalError = strMsg
+      } else {
+         isLoading = true
+         generalError = nil
+         signupSucceeded = false
 
-      let request = SignUpRequestModel(firstName: firstName, lastName: lastName, email: email, phone: phone, password: password, address: address, city: city, gender: selectedGender.displayName, createdAt: Date())
+         let request = SignUpRequestModel(firstName: firstName, lastName: lastName, email: email, phone: phone, password: password, address: address, city: city, gender: selectedGender.displayName, createdAt: Date())
 
 
-      do {
-         let user = try await signUpUseCase.execute(request)
-         currentUser     = user
-         signupSucceeded = true
-      } catch AuthError.emailAlreadyInUse {
-         generalError = "This email is already registered. Please sign in."
-      } catch AuthError.networkUnavailable {
-         generalError = "No internet connection. Please check your network."
-      } catch {
-         generalError = "Something went wrong. Please try again."
+         do {
+            let user = try await signUpUseCase.execute(request)
+            currentUser     = user
+            signupSucceeded = true
+         } catch AuthError.emailAlreadyInUse {
+            generalError = "This email is already registered. Please sign in."
+         } catch AuthError.networkUnavailable {
+            generalError = "No internet connection. Please check your network."
+         } catch {
+            generalError = "Something went wrong. Please try again."
+         }
+
+         isLoading = false
+
       }
 
-      isLoading = false
    }
 
    // MARK: - Validation
 
    @discardableResult
-   func validateFields() -> Bool {
-      var valid = true
+   func validateFields() -> String {
+      let trimmedPhone = phone.trimmingCharacters(in: .whitespaces)
+      let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
 
       // First Name
       if firstName.trimmingCharacters(in: .whitespaces).isEmpty {
-         firstNameError = "First name is required"
-         valid = false
-      } else { firstNameError = nil }
-
-      // Last Name
-      if lastName.trimmingCharacters(in: .whitespaces).isEmpty {
-         lastNameError = "Last name is required"
-         valid = false
-      } else { lastNameError = nil }
-
-      // Email
-      let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
-      if trimmedEmail.isEmpty {
-         emailError = "Email is required"
-         valid = false
+         strValidationalError = "First name is required"
+      } else if lastName.trimmingCharacters(in: .whitespaces).isEmpty {
+         strValidationalError = "Last name is required"
+      } else if trimmedEmail.isEmpty {
+         strValidationalError = "Email is required"
       } else if !isValidEmail(trimmedEmail) {
-         emailError = "Enter a valid email address"
-         valid = false
-      } else { emailError = nil }
-
-      // Phone
-      let trimmedPhone = phone.trimmingCharacters(in: .whitespaces)
-      if trimmedPhone.isEmpty {
-         phoneError = "Phone number is required"
-         valid = false
+         strValidationalError = "Enter a valid email address"
+      } else if trimmedPhone.isEmpty {
+         strValidationalError = "Phone number is required"
       } else if trimmedPhone.count < 10 {
-         phoneError = "Enter a valid 10-digit phone number"
-         valid = false
-      } else { phoneError = nil }
-
-      // Address
-      if address.trimmingCharacters(in: .whitespaces).isEmpty {
-         addressError = "Address is required"
-         valid = false
-      } else { addressError = nil }
-
-      // City
-      if city.trimmingCharacters(in: .whitespaces).isEmpty {
-         cityError = "City is required"
-         valid = false
-      } else { cityError = nil }
-
-      // Password
-      if password.isEmpty {
-         passwordError = "Password is required"
-         valid = false
+         strValidationalError = "Enter a valid 10-digit phone number"
+      } else if address.trimmingCharacters(in: .whitespaces).isEmpty {
+         strValidationalError = "Address is required"
+      } else if city.trimmingCharacters(in: .whitespaces).isEmpty {
+         strValidationalError = "City is required"
+      } else if password.isEmpty {
+         strValidationalError = "Password is required"
       } else if password.count < 6 {
-         passwordError = "Password must be at least 6 characters"
-         valid = false
-      } else { passwordError = nil }
-
-      // Confirm Password
-      if confirmPassword.isEmpty {
-         confirmPasswordError = "Please confirm your password"
-         valid = false
+         strValidationalError = "Password must be at least 6 characters"
+      } else if confirmPassword.isEmpty {
+         strValidationalError = "Please confirm your password"
       } else if confirmPassword != password {
-         confirmPasswordError = "Passwords do not match"
-         valid = false
-      } else { confirmPasswordError = nil }
+         strValidationalError = "Passwords do not match"
+      }
 
-      return valid
+      return strValidationalError ?? ""
    }
 
    private func isValidEmail(_ email: String) -> Bool {

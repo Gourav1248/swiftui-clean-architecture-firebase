@@ -13,6 +13,7 @@ struct AppCoordinator: View {
 
    @StateObject private var router = AppRouter()
    @State private var showAuth: Bool = false
+   @StateObject private var alertManager = AlertManager()  // ✅ add
 
    var body: some View {
       Group {
@@ -40,6 +41,7 @@ struct AppCoordinator: View {
                   }
             }
             .environmentObject(router)  // ✅ poori app mein available
+            .environmentObject(alertManager) // Available throughout the app
          }
       }
    }

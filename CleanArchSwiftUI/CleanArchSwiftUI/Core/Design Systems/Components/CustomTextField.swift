@@ -14,7 +14,7 @@ struct CustomTextField: View {
    var isSecure: Bool = false
    var keyboardType: UIKeyboardType = .default
    var textContentType: UITextContentType? = nil
-   var errorMessage: String? = nil
+   //var errorMessage: String? = nil
 
    @Binding var text: String
    @State private var isRevealed: Bool = false
@@ -68,23 +68,14 @@ struct CustomTextField: View {
                .overlay(
                   RoundedRectangle(cornerRadius: 12)
                      .strokeBorder(
-                        errorMessage != nil
-                        ? Color.red.opacity(0.7)
-                        : (isFocused ? Color.indigo : Color(.systemGray4)),
+                        (isFocused ? Color.indigo : Color(.systemGray4)),
                         lineWidth: isFocused ? 1.5 : 1
                      )
                )
          )
          .animation(.easeInOut(duration: 0.2), value: isFocused)
-
-         if let error = errorMessage {
-            Label(error, systemImage: "exclamationmark.circle.fill")
-               .font(.system(size: 12))
-               .foregroundColor(.red.opacity(0.8))
-               .transition(.opacity.combined(with: .move(edge: .top)))
-         }
       }
-      .animation(.easeInOut(duration: 0.2), value: errorMessage)
+      //.animation(.easeInOut(duration: 0.2), value: errorMessage)
    }
 }
 

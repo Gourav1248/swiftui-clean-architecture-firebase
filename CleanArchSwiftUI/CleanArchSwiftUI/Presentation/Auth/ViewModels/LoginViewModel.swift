@@ -20,6 +20,8 @@ final class LoginViewModel: ObservableObject {
    @Published var isLoading: Bool = false
    @Published var loginSucceeded: Bool = false
    @Published var generalError: String? = nil
+   @Published var strValidationalError: String? = nil
+   @Published var alertMessage: (id: UUID, message: String)? = nil
 
    // Field-level errors
    @Published var emailError: String? = nil
@@ -46,60 +48,52 @@ final class LoginViewModel: ObservableObject {
    // MARK: - Actions
 
    func login() async {
-      guard validateFields() else { return }
-
-      isLoading = true
       generalError = nil
-      loginSucceeded = false
+      let strValidationError = validateFields()
 
-      do {
-        let user =  try await loginUseCase.execute(
-            email: email.trimmingCharacters(in: .whitespaces),
-            password: password
-         )
-         loginSucceeded = true
-         currentUser = user
-      } catch AuthError.invalidCredentials {
-         generalError = "Incorrect email or password. Please try again."
-      } catch AuthError.networkUnavailable {
-         generalError = "No internet connection. Please check your network."
-      } catch {
-         generalError = "Something went wrong. Please try again."
+      if strValidationError?.count ?? 0 > 0 {
+         alertMessage = (id: UUID(), message: strValidationError ?? "")
+         generalError = strValidationError  // ✅ directly alert mein jaayega
+      } else {
+         isLoading = true
+         generalError = nil
+         loginSucceeded = false
+
+         do {
+            let user =  try await loginUseCase.execute(
+               email: email.trimmingCharacters(in: .whitespaces),
+               password: password
+            )
+            loginSucceeded = true
+            currentUser = user
+         } catch AuthError.invalidCredentials {
+            generalError = "Incorrect email or password. Please try again."
+         } catch AuthError.networkUnavailable {
+            generalError = "No internet connection. Please check your network."
+         } catch {
+            generalError = "Something went wrong. Please try again."
+         }
+
+         isLoading = false
       }
-
-      isLoading = false
    }
 
    // MARK: - Validation
 
    @discardableResult
-   private func validateFields() -> Bool {
-      var valid = true
-
-      // Email
+   private func validateFields() -> String? {
       let trimmedEmail = email.trimmingCharacters(in: .whitespaces)
       if trimmedEmail.isEmpty {
-         emailError = "Email is required"
-         valid = false
+         strValidationalError = "Email is required"
       } else if !isValidEmail(trimmedEmail) {
-         emailError = "Enter a valid email address"
-         valid = false
-      } else {
-         emailError = nil
-      }
-
-      // Password
-      if password.isEmpty {
-         passwordError = "Password is required"
-         valid = false
+         strValidationalError = "Enter a valid email address"
+      } else if password.isEmpty {
+         strValidationalError = "Password is required"
       } else if password.count < 6 {
-         passwordError = "Password must be at least 6 characters"
-         valid = false
-      } else {
-         passwordError = nil
+         strValidationalError = "Password must be at least 6 characters"
       }
 
-      return valid
+      return strValidationalError
    }
 
    private func isValidEmail(_ email: String) -> Bool {

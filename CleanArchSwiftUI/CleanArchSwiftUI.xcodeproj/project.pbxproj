@@ -45,6 +45,8 @@
 		D7F67CF92FADE6E70019D95B /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CF82FADE6E70019D95B /* LoginView.swift */; };
 		D7F67CFB2FADF3850019D95B /* AuthDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67CFA2FADF3850019D95B /* AuthDivider.swift */; };
 		D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F67D002FAE03690019D95B /* LoginViewModel.swift */; };
+		D7F90E342FB2FF4500DFF280 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F90E332FB2FF4500DFF280 /* AlertManager.swift */; };
+		D7F90E362FB300D100DFF280 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F90E352FB300D100DFF280 /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		D7F67CF82FADE6E70019D95B /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D7F67CFA2FADF3850019D95B /* AuthDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDivider.swift; sourceTree = "<group>"; };
 		D7F67D002FAE03690019D95B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		D7F90E332FB2FF4500DFF280 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		D7F90E352FB300D100DFF280 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +317,8 @@
 				D7F67CF42FADE5780019D95B /* PrimaryButton.swift */,
 				D7F67CF62FADE60C0019D95B /* SecondaryButton.swift */,
 				D7F67CFA2FADF3850019D95B /* AuthDivider.swift */,
+				D7F90E332FB2FF4500DFF280 /* AlertManager.swift */,
+				D7F90E352FB300D100DFF280 /* AlertView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -494,7 +500,9 @@
 			files = (
 				D7F67CF52FADE5780019D95B /* PrimaryButton.swift in Sources */,
 				D7D0CDFF2FAB33EC00F985A5 /* Store.swift in Sources */,
+				D7F90E342FB2FF4500DFF280 /* AlertManager.swift in Sources */,
 				D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */,
+				D7F90E362FB300D100DFF280 /* AlertView.swift in Sources */,
 				D7D0CE052FAB6FDB00F985A5 /* CategoryDTO.swift in Sources */,
 				D72DC1182FAA225400194998 /* CleanArchSwiftUIApp.swift in Sources */,
 				D72DC1192FAA225400194998 /* ContentView.swift in Sources */,

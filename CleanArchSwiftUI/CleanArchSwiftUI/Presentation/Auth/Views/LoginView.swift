@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
 
    @StateObject private var viewModel = LoginViewModel()
+   @EnvironmentObject var alertManager: AlertManager
 
    // Navigation callbacks — wired by AppCoordinator
    var onLoginSuccess: ((User?) -> Void)? = nil
@@ -47,7 +48,6 @@ struct LoginView: View {
                      icon: "envelope",
                      keyboardType: .emailAddress,
                      textContentType: .emailAddress,
-                     errorMessage: viewModel.emailError,
                      text: $viewModel.email
                   )
 
@@ -57,7 +57,6 @@ struct LoginView: View {
                      icon: "lock",
                      isSecure: true,
                      textContentType: .password,
-                     errorMessage: viewModel.passwordError,
                      text: $viewModel.password
                   )
 
@@ -74,30 +73,6 @@ struct LoginView: View {
                .padding(.horizontal, AppTheme.spacingLG)
                .animateEntrance(appeared, delay: 0.08)
 
-               // ── Error Banner ────────────────────────────
-               if let error = viewModel.generalError {
-                  HStack(spacing: 8) {
-                     Image(systemName: "exclamationmark.triangle.fill")
-                        .font(.system(size: 13))
-                     Text(error)
-                        .font(.system(size: 13))
-                  }
-                  .foregroundColor(AppTheme.error)
-                  .padding(.horizontal, 14)
-                  .padding(.vertical, 11)
-                  .frame(maxWidth: .infinity, alignment: .leading)
-                  .background(
-                     RoundedRectangle(cornerRadius: AppTheme.radiusMD)
-                        .fill(AppTheme.error.opacity(0.07))
-                        .overlay(
-                           RoundedRectangle(cornerRadius: AppTheme.radiusMD)
-                              .strokeBorder(AppTheme.error.opacity(0.25), lineWidth: 1)
-                        )
-                  )
-                  .padding(.horizontal, AppTheme.spacingLG)
-                  .padding(.top, 12)
-                  .transition(.opacity.combined(with: .move(edge: .top)))
-               }
 
                // ── Primary CTA ─────────────────────────────
                PrimaryButton(
@@ -142,8 +117,12 @@ struct LoginView: View {
             }
          }
       }
-      .animation(.easeOut(duration: 0.4), value: viewModel.generalError)
       .onAppear { appeared = true }
+      .onChange(of: viewModel.alertMessage?.id) { _ in
+         guard let alert = viewModel.alertMessage else { return }
+         alertManager.showError(title: "Alert", message: alert.message)
+      }
+      .withAlert(alertManager)
    }
 }
 
