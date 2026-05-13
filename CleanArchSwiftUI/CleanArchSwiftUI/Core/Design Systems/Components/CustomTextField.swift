@@ -14,7 +14,6 @@ struct CustomTextField: View {
    var isSecure: Bool = false
    var keyboardType: UIKeyboardType = .default
    var textContentType: UITextContentType? = nil
-   //var errorMessage: String? = nil
 
    @Binding var text: String
    @State private var isRevealed: Bool = false

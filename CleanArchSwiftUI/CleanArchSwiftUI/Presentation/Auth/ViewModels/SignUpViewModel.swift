@@ -50,6 +50,8 @@ final class SignUpViewModel: ObservableObject {
    @Published var generalError:    String? = nil
    @Published var currentUser:     User?   = nil
 
+   
+
    // MARK: - Dependencies
    private let signUpUseCase: SignUpUseCaseProtocol
 
@@ -89,12 +91,15 @@ final class SignUpViewModel: ObservableObject {
             let user = try await signUpUseCase.execute(request)
             currentUser     = user
             signupSucceeded = true
+            
          } catch AuthError.emailAlreadyInUse {
             generalError = "This email is already registered. Please sign in."
          } catch AuthError.networkUnavailable {
             generalError = "No internet connection. Please check your network."
          } catch {
-            generalError = "Something went wrong. Please try again."
+            print("🔴 FULL ERROR: \(error)")
+            print("🔴 USER INFO: \((error as NSError).userInfo)")
+            generalError = error.localizedDescription//"Something went wrong. Please try again."
          }
 
          isLoading = false

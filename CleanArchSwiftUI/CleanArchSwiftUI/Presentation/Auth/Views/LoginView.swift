@@ -83,6 +83,7 @@ struct LoginView: View {
                   Task {
                      await viewModel.login()
                      if viewModel.loginSucceeded {
+                        alertManager.showSuccess(message: "Login successfully! 🎉")
                         onLoginSuccess?(viewModel.currentUser)
                      }
                   }

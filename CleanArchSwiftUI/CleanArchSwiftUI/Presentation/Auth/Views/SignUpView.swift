@@ -17,6 +17,7 @@ struct SignUpView: View {
    @StateObject private var viewModel = SignUpViewModel()
    @State private var appeared = false
    @EnvironmentObject var alertManager: AlertManager
+   @EnvironmentObject var router: AppRouter
 
    var onSignupSuccess: ((User?) -> Void)? = nil
    var onLoginTap: (() -> Void)? = nil
@@ -28,7 +29,23 @@ struct SignUpView: View {
 
          ScrollView(showsIndicators: false) {
             VStack(spacing: 0) {
+               HStack {
+                  Button {
+                     router.pop()
+                  } label: {
+                     HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                           .font(.system(size: 14, weight: .semibold))
+                        Text("Back")
+                           .font(.system(size: 14, weight: .medium))
+                     }
+                     .foregroundColor(.indigo)
+                  }
 
+                  Spacer()
+               }
+               .padding(.horizontal, AppTheme.spacingSM)
+               .padding(.top, 5)
                // ── Header ──────────────────────────────────
                AuthHeader(
                   title: "Create account",
@@ -173,6 +190,7 @@ struct SignUpView: View {
                   Task {
                      await viewModel.signup()
                      if viewModel.signupSucceeded {
+                        alertManager.showSuccess(message: "Account created successfully! 🎉")
                         onSignupSuccess?(viewModel.currentUser)
                      }
                   }
