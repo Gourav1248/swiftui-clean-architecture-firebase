@@ -11,6 +11,7 @@ struct LoginView: View {
 
    @StateObject private var viewModel = LoginViewModel()
    @EnvironmentObject var alertManager: AlertManager
+   @EnvironmentObject var loaderManager: LoaderManager
 
    // Navigation callbacks — wired by AppCoordinator
    var onLoginSuccess: ((User?) -> Void)? = nil
@@ -77,14 +78,16 @@ struct LoginView: View {
                // ── Primary CTA ─────────────────────────────
                PrimaryButton(
                   title: "Sign In",
-                  isLoading: viewModel.isLoading,
                   isDisabled: !viewModel.isFormValid
                ) {
                   Task {
+                     loaderManager.show()
                      await viewModel.login()
                      if viewModel.loginSucceeded {
                         alertManager.showSuccess(message: "Login successfully! 🎉")
                         onLoginSuccess?(viewModel.currentUser)
+                        router.handleLoginSuccess()
+                        loaderManager.hide()
                      }
                   }
                }

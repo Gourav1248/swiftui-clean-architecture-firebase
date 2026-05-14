@@ -14,34 +14,46 @@ struct AppCoordinator: View {
    @StateObject private var router = AppRouter()
    @State private var showAuth: Bool = false
    @StateObject private var alertManager = AlertManager()  // ✅ add
+   @StateObject var loaderManager = LoaderManager()
 
    var body: some View {
-      Group {
-         if !showAuth {
-            SplashView {
-               showAuth = true
-            }
-         } else if router.isAuthenticated {
-            //HomeView()
-         } else {
-            NavigationStack(path: $router.path) {
-               LoginView()
-                  .navigationBarHidden(true)
-                  .navigationDestination(for: AppRoute.self) { route in
-                     switch route {
-                        case .signup:
-                           SignUpView()
-                              .navigationBarHidden(true)
-                        //case .home:
-                        
-                          // HomeView()
-                        case .login:
-                           LoginView()
+      ZStack {
+         Group {
+            if !showAuth {
+               SplashView {
+                  showAuth = true
+               }
+            } else if router.isAuthenticated {
+               //HomeView()
+               MainTabView()
+            } else {
+               NavigationStack(path: $router.path) {
+                  LoginView()
+                     .navigationBarHidden(true)
+                     .navigationDestination(for: AppRoute.self) { route in
+                        switch route {
+                           case .signup:
+                              SignUpView()
+                                 .navigationBarHidden(true)
+                              //case .home:
+                              
+                              // HomeView()
+                           case .login:
+                              LoginView()
+                        }
                      }
-                  }
+
+               }
+               .environmentObject(router)  // ✅ poori app mein available
+               .environmentObject(alertManager) // Available throughout the app
+               .environmentObject(loaderManager) 
+               .animation(.easeInOut, value: loaderManager.isLoading)
+
+               if loaderManager.isLoading {
+                  LoaderView(message: loaderManager.message)
+                     .zIndex(999)
+               }
             }
-            .environmentObject(router)  // ✅ poori app mein available
-            .environmentObject(alertManager) // Available throughout the app
          }
       }
    }

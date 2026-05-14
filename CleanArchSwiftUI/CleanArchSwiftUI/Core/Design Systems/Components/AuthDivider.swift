@@ -44,11 +44,11 @@ struct AuthHeader: View {
          VStack(spacing: 4) {
             Text(title)
                .font(.system(size: 26, weight: .bold, design: .serif))
-               .foregroundColor(.primary)
+               .foregroundColor(AppTheme.black)
 
             Text(subtitle)
                .font(.system(size: 15))
-               .foregroundColor(.black)
+               .foregroundColor(AppTheme.black)
                .multilineTextAlignment(.center)
          }
       }

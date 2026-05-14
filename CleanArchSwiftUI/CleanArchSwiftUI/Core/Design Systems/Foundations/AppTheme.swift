@@ -13,6 +13,7 @@ struct AppTheme {
    static let primary = Color("Primary") // #4F46E5 Indigo
    static let background = Color("Background")
    static let white = Color.white
+   static let black = Color.black
    static let surface = Color("Surface")
    static let textPrimary = Color("TextPrimary")
    static let textSecondary = Color("TextSecondary")
