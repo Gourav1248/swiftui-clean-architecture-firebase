@@ -90,6 +90,7 @@ struct StoreDTO {
    // MARK: - DTO → Domain Entity
    func toDomain() -> Store {
       Store(
+         id: "",
          storeId      : storeId,
          name         : name,
          description  : description,

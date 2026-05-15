@@ -18,6 +18,7 @@ struct SignUpView: View {
    @State private var appeared = false
    @EnvironmentObject var alertManager: AlertManager
    @EnvironmentObject var router: AppRouter
+   @EnvironmentObject var loader: LoaderManager
 
    var onSignupSuccess: ((User?) -> Void)? = nil
    var onLoginTap: (() -> Void)? = nil
@@ -188,9 +189,11 @@ struct SignUpView: View {
                   isDisabled: !viewModel.isFormValid
                ) {
                   Task {
+                     loader.show()
                      await viewModel.signup()
                      if viewModel.signupSucceeded {
                         alertManager.showSuccess(message: "Account created successfully! 🎉")
+                        loader.hide()
                         onSignupSuccess?(viewModel.currentUser)
                      }
                   }

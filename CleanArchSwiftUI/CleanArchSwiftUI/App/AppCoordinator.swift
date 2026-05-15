@@ -44,9 +44,6 @@ struct AppCoordinator: View {
                      }
 
                }
-               .environmentObject(router)  // ✅ poori app mein available
-               .environmentObject(alertManager) // Available throughout the app
-               .environmentObject(loaderManager) 
                .animation(.easeInOut, value: loaderManager.isLoading)
 
                if loaderManager.isLoading {
@@ -55,6 +52,9 @@ struct AppCoordinator: View {
                }
             }
          }
+         .environmentObject(router)  // ✅ poori app mein available
+         .environmentObject(alertManager) // Available throughout the app
+         .environmentObject(loaderManager) 
       }
    }
 }

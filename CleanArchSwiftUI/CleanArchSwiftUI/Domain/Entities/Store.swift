@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Store: Codable {
+struct Store: Codable, Identifiable {
+   var id: String
    let storeId: String
    var name: String
    var description: String
