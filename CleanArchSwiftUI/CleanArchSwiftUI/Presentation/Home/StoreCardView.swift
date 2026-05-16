@@ -18,11 +18,11 @@ struct StoreCardView: View {
          VStack(alignment: .leading, spacing: 4) {
             Text(store.name)
                .font(.system(size: 16, weight: .semibold))
-               .foregroundColor(.primary)
+               .foregroundColor(AppTheme.primary)
 
             Text(store.category)
                .font(.system(size: 13))
-               .foregroundColor(.secondary)
+               .foregroundColor(AppTheme.secondary)
 
             HStack(spacing: 4) {
                Image(systemName: "star.fill")
@@ -30,6 +30,7 @@ struct StoreCardView: View {
                   .foregroundColor(.orange)
                Text("\(store.rating, specifier: "%.1f")")
                   .font(.system(size: 13, weight: .medium))
+                  .foregroundColor(AppTheme.darkSurface)
             }
          }
 
@@ -46,9 +47,13 @@ struct StoreCardView: View {
                   .fill(store.isActive ? Color.green.opacity(0.12) : Color.red.opacity(0.12))
             )
       }
-      .padding(14)
-      .background(Color(.systemBackground))
+      .padding(16)
+      .background(AppTheme.surface)
       .cornerRadius(16)
-      .shadow(color: .black.opacity(0.06), radius: 6, x: 0, y: 2)
+      .shadow(color: .black.opacity(0.10), radius: 6, x: 0, y: 2)
+      .overlay(
+         RoundedRectangle(cornerRadius: 10.0)
+            .stroke(AppTheme.border, lineWidth: 1.5)
+      )
    }
 }

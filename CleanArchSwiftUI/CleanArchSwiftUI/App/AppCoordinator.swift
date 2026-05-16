@@ -23,7 +23,7 @@ struct AppCoordinator: View {
                SplashView {
                   showAuth = true
                }
-            } else if router.isAuthenticated {
+            } else if UserDefaultsManager.shared.isLoggedIn {
                //HomeView()
                MainTabView()
             } else {

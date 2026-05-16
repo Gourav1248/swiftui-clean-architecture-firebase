@@ -17,7 +17,6 @@ struct MainTabView: View {
 
          // ── Tab 1: Home ──
          HomeView()
-         Text("Home View")
             .tabItem {
                Label("Home", systemImage: "house.fill")
             }

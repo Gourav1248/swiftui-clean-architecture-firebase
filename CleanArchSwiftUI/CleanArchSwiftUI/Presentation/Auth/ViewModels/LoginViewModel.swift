@@ -66,12 +66,16 @@ final class LoginViewModel: ObservableObject {
             )
             loginSucceeded = true
             currentUser = user
+            UserDefaultsManager.shared.isLoggedIn = true
+            UserDefaultsManager.shared.userId     = user.uid
+            UserDefaultsManager.shared.userEmail  = user.email
          } catch AuthError.invalidCredentials {
             generalError = "Incorrect email or password. Please try again."
          } catch AuthError.networkUnavailable {
             generalError = "No internet connection. Please check your network."
          } catch {
-            generalError = "Something went wrong. Please try again."
+            print("error localized description = \(error.localizedDescription)")
+            generalError = error.localizedDescription
          }
 
          isLoading = false

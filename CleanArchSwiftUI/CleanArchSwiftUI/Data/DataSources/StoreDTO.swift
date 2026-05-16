@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 struct StoreDTO {
 
-   var storeId: String
+   var id: String
    var name: String
    var description: String
    var category: String
@@ -46,11 +46,11 @@ struct StoreDTO {
          area : locationData["area"] as? String ?? "",
          city : locationData["city"] as? String ?? "",
          lat  : locationData["lat"]  as? Double ?? 0.0,
-         lng  : locationData["lng"]  as? Double ?? 0.0
+         long  : locationData["long"]  as? Double ?? 0.0
       )
 
       return StoreDTO(
-         storeId      : id,
+         id      : id,
          name         : data["name"]         as? String ?? "",
          description  : data["description"]  as? String ?? "",
          category     : data["category"]     as? String ?? "",
@@ -66,7 +66,7 @@ struct StoreDTO {
    // MARK: - DTO → Firestore Dictionary
    var dictionary: [String: Any] {
       return [
-         "storeId"      : storeId,
+         "id"      : id,
          "name"         : name,
          "description"  : description,
          "category"     : category,
@@ -80,7 +80,7 @@ struct StoreDTO {
             "area" : location.area,
             "city" : location.city,
             "lat"  : location.lat,
-            "lng"  : location.lng
+            "lng"  : location.long
                           ],
          "createdAt"    : Timestamp(date: createdAt),
          "rating" : rating
@@ -90,8 +90,7 @@ struct StoreDTO {
    // MARK: - DTO → Domain Entity
    func toDomain() -> Store {
       Store(
-         id: "",
-         storeId      : storeId,
+         id: id,
          name         : name,
          description  : description,
          category     : category,
@@ -107,7 +106,7 @@ struct StoreDTO {
    // MARK: - Domain → DTO
    static func fromDomain(_ store: Store) -> StoreDTO {
       StoreDTO(
-         storeId      : store.storeId,
+         id      : store.id,
          name         : store.name,
          description  : store.description,
          category     : store.category,
@@ -140,13 +139,13 @@ struct StoreLocationDTO {
    var area: String
    var city: String
    var lat: Double
-   var lng: Double
+   var long: Double
 
    func toDomain() -> StoreLocation {
-      StoreLocation(area: area, city: city, lat: lat, lng: lng)
+      StoreLocation(area: area, city: city, lat: lat, long: long)
    }
 
    static func fromDomain(_ l: StoreLocation) -> StoreLocationDTO {
-      StoreLocationDTO(area: l.area, city: l.city, lat: l.lat, lng: l.lng)
+      StoreLocationDTO(area: l.area, city: l.city, lat: l.lat, long: l.long)
    }
 }

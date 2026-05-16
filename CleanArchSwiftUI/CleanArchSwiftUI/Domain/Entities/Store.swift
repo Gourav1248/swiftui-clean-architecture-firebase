@@ -10,7 +10,6 @@ import Foundation
 
 struct Store: Codable, Identifiable {
    var id: String
-   let storeId: String
    var name: String
    var description: String
    var category: String
@@ -31,5 +30,5 @@ struct StoreLocation: Codable {
    var area: String
    var city: String
    var lat: Double
-   var lng: Double
+   var long: Double
 }

@@ -30,7 +30,7 @@ struct HomeView: View {
 
             // ── Store List ──
             List {
-               ForEach(viewModel.stores, id: \.storeId) { obStore in
+               ForEach(viewModel.stores, id: \.id) { obStore in
                   StoreCardView(store: obStore)
                }
                .listRowSeparator(.hidden)
@@ -42,8 +42,9 @@ struct HomeView: View {
             .refreshable {
                await  viewModel.refreshStoreList()
             }
+            .padding(EdgeInsets(top: 0.0, leading: 3.0, bottom: 0.0, trailing: 3.0))
          }
-         .background(Color(.systemGroupedBackground))
+         .background(Color(.white))
          .navigationBarHidden(true) // We built our own top bar
       }
       .task {
@@ -81,10 +82,10 @@ struct HomeView: View {
          VStack(alignment: .leading, spacing: 2) {
             Text("Good Morning 👋")
                .font(.system(size: 13))
-               .foregroundColor(.secondary)
+               .foregroundColor(AppTheme.primary)
             Text("Find a Store")
                .font(.system(size: 22, weight: .bold))
-               .foregroundColor(.primary)
+               .foregroundColor(AppTheme.textPrimary)
          }
 
          Spacer()
@@ -112,17 +113,26 @@ struct HomeView: View {
    private var searchBar: some View {
       HStack(spacing: 10) {
          Image(systemName: "magnifyingglass")
-            .foregroundColor(.secondary)
+            .foregroundColor(.black)
 
          // Two-way binding: as user types, viewModel.searchText updates instantly
-         TextField("Search stores...", text: $viewModel.searchText)
-            .font(.system(size: 15))
+         TextField(
+            "",
+            text: $viewModel.searchText,
+            prompt: Text("Search stores...")
+               .foregroundColor(.gray.opacity(0.75))  // ✅ placeholder gray
+         )
+         .foregroundColor(.black)
       }
-      .padding(.horizontal, 14)
+      .padding(.horizontal, 10)
       .padding(.vertical, 12)
-      .background(Color(.systemBackground))
+      .background(AppTheme.surface)
       .cornerRadius(14)
       .shadow(color: .black.opacity(0.05), radius: 4, x: 0, y: 1)
+      .overlay(
+         RoundedRectangle(cornerRadius: 12.0)
+            .stroke(AppTheme.border, lineWidth: 1.5)
+      )
    }
 }
    
