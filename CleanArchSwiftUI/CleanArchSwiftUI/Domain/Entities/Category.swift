@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct Category {
-   let categoryId: String
+
+struct Category: Codable, Identifiable {
+   let id: String
    var name: String
    var slug: String
    var imageUrl: String

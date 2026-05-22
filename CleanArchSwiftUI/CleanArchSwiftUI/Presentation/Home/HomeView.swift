@@ -8,49 +8,67 @@
 import SwiftUI
 
 struct HomeView: View {
-
-   // @StateObject = "create and own this ViewModel"
    @StateObject private var viewModel = HomeViewModel()
    @EnvironmentObject var loader: LoaderManager
-
-   // Controls whether the side menu/filter sheet is showing
    @State private var showMenu: Bool = false
 
+
+   let currentUser = User(uid: "", firstName: "Gourav", lastName: "Joshi", email: "gouravjtest@gmail.com", phone: "", address: "", city: "", gender: "", isActive: true, createdAt: Date())
+
+
    var body: some View {
-      NavigationStack {
-         VStack(spacing: 0) {
+      ZStack(alignment: .leading) {
 
-            // ── Top Bar ──
-            topBar
-
-            // ── Search Bar ──
-            searchBar
-               .padding(.horizontal, 16)
-               .padding(.vertical, 10)
-
-            // ── Store List ──
-            List {
-               ForEach(viewModel.stores, id: \.id) { obStore in
-                  StoreCardView(store: obStore)
+         // ── 1. Main Content ──
+         NavigationStack {
+            VStack(spacing: 0) {
+               topBar
+               searchBar
+                  .padding(.horizontal, 16)
+                  .padding(.vertical, 10)
+               List {
+                  ForEach(viewModel.stores, id: \.id) { obStore in
+                     StoreCardView(store: obStore)
+                  }
+                  .listRowSeparator(.hidden)
+                  .listRowInsets(EdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0))
+                  .listRowBackground(Color.clear)
                }
-               .listRowSeparator(.hidden)
-               .listRowInsets(EdgeInsets(top: 5.0, leading: 5.0, bottom: 5.0, trailing: 5.0))
-               .listRowBackground(Color.clear)
+               .listStyle(.plain)
+               .scrollContentBackground(.hidden)
+               .refreshable { await viewModel.refreshStoreList() }
+               .padding(EdgeInsets(top: 0.0, leading: 3.0, bottom: 0.0, trailing: 3.0))
             }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
-            .refreshable {
-               await  viewModel.refreshStoreList()
-            }
-            .padding(EdgeInsets(top: 0.0, leading: 3.0, bottom: 0.0, trailing: 3.0))
+            .background(Color.white)
+            .navigationBarHidden(true)
          }
-         .background(Color(.white))
-         .navigationBarHidden(true) // We built our own top bar
-      }
-      .task {
-         await viewModel.fetchAllStores()
-      }
+         .offset(x: showMenu ? 270 : 0)
+         .animation(.spring(response: 0.4, dampingFraction: 0.8), value: showMenu)
 
+         // ── 2. Dark Overlay (tap to close) ──
+         if showMenu {
+            Color.black.opacity(0.4)
+               .ignoresSafeArea()
+               .offset(x: 270)
+               .onTapGesture {
+                  withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                     showMenu = false
+                  }
+               }
+         }
+
+         // ── 3. Side Menu ──
+         if showMenu {
+            SideMenuView(user: currentUser) { option in
+               withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                  showMenu = false
+               }
+            }
+            .frame(width: 270)
+            .transition(.move(edge: .leading))
+         }
+      }
+      .task { await viewModel.fetchAllStores() }
       .onChange(of: viewModel.isLoading) { loading in
          if loading ?? false {
             loader.show(message: "Please wait.....fetching stores")
@@ -58,25 +76,12 @@ struct HomeView: View {
             loader.hide()
          }
       }
-
       .onChange(of: viewModel.errorMessage) { error in
-
-         if let error = error {
-            print("Error: \(error)")
-         }
-      }
-
-
-      .sheet(isPresented: $showMenu) {
-         // Menu sheet — you can expand this later
-         Text("Menu / Filters")
-            .font(.title)
-            .padding()
+         if let error = error { print("Error: \(error)") }
       }
    }
 
-   // MARK: - Top Bar
-   // "MARK:" is just a comment that organizes code into sections (visible in Xcode jump bar)
+   // MARK: - Top Bar (same as before — no changes needed)
    private var topBar: some View {
       HStack {
          VStack(alignment: .leading, spacing: 2) {
@@ -90,9 +95,11 @@ struct HomeView: View {
 
          Spacer()
 
-         // Menu Button
+         // Menu Button ← showMenu = true yahan set hota hai
          Button {
-            showMenu = true
+            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+               showMenu = true
+            }
          } label: {
             ZStack {
                RoundedRectangle(cornerRadius: 12)
@@ -109,18 +116,16 @@ struct HomeView: View {
       .padding(.bottom, 8)
    }
 
-   // MARK: - Search Bar
+   // MARK: - Search Bar (no changes)
    private var searchBar: some View {
       HStack(spacing: 10) {
          Image(systemName: "magnifyingglass")
             .foregroundColor(.black)
-
-         // Two-way binding: as user types, viewModel.searchText updates instantly
          TextField(
             "",
             text: $viewModel.searchText,
             prompt: Text("Search stores...")
-               .foregroundColor(.gray.opacity(0.75))  // ✅ placeholder gray
+               .foregroundColor(.gray.opacity(0.75))
          )
          .foregroundColor(.black)
       }

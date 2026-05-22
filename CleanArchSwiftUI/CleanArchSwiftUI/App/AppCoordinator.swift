@@ -35,9 +35,7 @@ struct AppCoordinator: View {
                            case .signup:
                               SignUpView()
                                  .navigationBarHidden(true)
-                              //case .home:
                               
-                              // HomeView()
                            case .login:
                               LoginView()
                         }

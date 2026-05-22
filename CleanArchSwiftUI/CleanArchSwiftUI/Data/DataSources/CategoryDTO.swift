@@ -42,7 +42,7 @@ struct CategoryDTO {
    // MARK: - DTO → Domain Entity
    func toDomain() -> Category {
       Category(
-         categoryId : categoryId,
+         id : categoryId,
          name       : name,
          slug       : slug,
          imageUrl   : imageUrl,
@@ -53,7 +53,7 @@ struct CategoryDTO {
    // MARK: - Domain → DTO
    static func fromDomain(_ category: Category) -> CategoryDTO {
       CategoryDTO(
-         categoryId : category.categoryId,
+         categoryId : category.id,
          name       : category.name,
          slug       : category.slug,
          imageUrl   : category.imageUrl,

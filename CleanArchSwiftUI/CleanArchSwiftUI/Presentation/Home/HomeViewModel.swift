@@ -32,8 +32,6 @@ class HomeViewModel: ObservableObject {
       }
    }
 
-
-
    func fetchAllStores() async {
       isLoading = true
       do {

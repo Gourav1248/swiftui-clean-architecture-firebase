@@ -13,6 +13,7 @@
 		D72DC1182FAA225400194998 /* CleanArchSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72DC1152FAA225400194998 /* CleanArchSwiftUIApp.swift */; };
 		D72DC1192FAA225400194998 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72DC1162FAA225400194998 /* ContentView.swift */; };
 		D72DC1202FAA22A000194998 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D72DC11E2FAA22A000194998 /* Assets.xcassets */; };
+		D746280C2FB9B643000F8DF6 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D746280B2FB9B643000F8DF6 /* SideMenu.swift */; };
 		D74C98062FB0584900C1394E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98052FB0584900C1394E /* AppCoordinator.swift */; };
 		D74C98082FB0726300C1394E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98072FB0726300C1394E /* SignUpView.swift */; };
 		D74C980A2FB0754C00C1394E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98092FB0754C00C1394E /* SignUpViewModel.swift */; };
@@ -33,6 +34,11 @@
 		D7AC05142FA8C30C0028A872 /* CleanArchSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AC05132FA8C30C0028A872 /* CleanArchSwiftUITests.swift */; };
 		D7AC051E2FA8C30C0028A872 /* CleanArchSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AC051D2FA8C30C0028A872 /* CleanArchSwiftUIUITests.swift */; };
 		D7AC05202FA8C30C0028A872 /* CleanArchSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AC051F2FA8C30C0028A872 /* CleanArchSwiftUIUITestsLaunchTests.swift */; };
+		D7BBFBB32FBAF23E0071C863 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBB22FBAF23E0071C863 /* CategoryView.swift */; };
+		D7BBFBB52FBAFABA0071C863 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBB42FBAFABA0071C863 /* CategoryViewModel.swift */; };
+		D7BBFBB72FBAFB2D0071C863 /* CategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBB62FBAFB2D0071C863 /* CategoryUseCase.swift */; };
+		D7BBFBBC2FBAFE110071C863 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBBB2FBAFE110071C863 /* CategoryRepository.swift */; };
+		D7BBFBBF2FBB45710071C863 /* CategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBBE2FBB45710071C863 /* CategoryCellView.swift */; };
 		D7CA07802FB86C5E0056E5B5 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7CA077F2FB86C5E0056E5B5 /* UserDefaultsManager.swift */; };
 		D7D0CDFA2FAB2A9500F985A5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D0CDF92FAB2A9500F985A5 /* User.swift */; };
 		D7D0CDFD2FAB2B1D00F985A5 /* UserDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D0CDFC2FAB2B1D00F985A5 /* UserDTO.swift */; };
@@ -80,6 +86,7 @@
 		D72DC1152FAA225400194998 /* CleanArchSwiftUIApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanArchSwiftUIApp.swift; sourceTree = "<group>"; };
 		D72DC1162FAA225400194998 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D72DC11E2FAA22A000194998 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D746280B2FB9B643000F8DF6 /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		D74C98052FB0584900C1394E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D74C98072FB0726300C1394E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		D74C98092FB0754C00C1394E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -103,6 +110,11 @@
 		D7AC05192FA8C30C0028A872 /* CleanArchSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanArchSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AC051D2FA8C30C0028A872 /* CleanArchSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchSwiftUIUITests.swift; sourceTree = "<group>"; };
 		D7AC051F2FA8C30C0028A872 /* CleanArchSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanArchSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D7BBFBB22FBAF23E0071C863 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		D7BBFBB42FBAFABA0071C863 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		D7BBFBB62FBAFB2D0071C863 /* CategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUseCase.swift; sourceTree = "<group>"; };
+		D7BBFBBB2FBAFE110071C863 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
+		D7BBFBBE2FBB45710071C863 /* CategoryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCellView.swift; sourceTree = "<group>"; };
 		D7CA077F2FB86C5E0056E5B5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		D7D0CDF92FAB2A9500F985A5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D7D0CDFC2FAB2B1D00F985A5 /* UserDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDTO.swift; sourceTree = "<group>"; };
@@ -192,6 +204,8 @@
 		D72DC11C2FAA22A000194998 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				D7BBFBB12FBAF2170071C863 /* Category */,
+				D746280A2FB9B57E000F8DF6 /* Side Menu */,
 				D79B4EC22FB70B670086E38A /* Home */,
 				D78401B82FB5ABCD00F68FB5 /* Main */,
 				D7F67CFD2FADFD8D0019D95B /* Auth */,
@@ -214,6 +228,14 @@
 				D7D0CDFB2FAB2B0A00F985A5 /* DataSources */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D746280A2FB9B57E000F8DF6 /* Side Menu */ = {
+			isa = PBXGroup;
+			children = (
+				D746280B2FB9B643000F8DF6 /* SideMenu.swift */,
+			);
+			path = "Side Menu";
 			sourceTree = "<group>";
 		};
 		D78401B82FB5ABCD00F68FB5 /* Main */ = {
@@ -249,6 +271,7 @@
 				D79C419C2FAF079C00D8BC9A /* LoginUseCase.swift */,
 				D7E30ABE2FB1D6710003C862 /* SignUpUseCase.swift */,
 				D79B4EC92FB712650086E38A /* StoresUseCase.swift */,
+				D7BBFBB62FBAFB2D0071C863 /* CategoryUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -258,6 +281,7 @@
 			children = (
 				D79F2EC32FAC8A58007EE77B /* FirebaseAuthRepository.swift */,
 				D79B4ECB2FB717310086E38A /* StoreRepository.swift */,
+				D7BBFBBB2FBAFE110071C863 /* CategoryRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -319,6 +343,24 @@
 				D7AC051F2FA8C30C0028A872 /* CleanArchSwiftUIUITestsLaunchTests.swift */,
 			);
 			path = CleanArchSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		D7BBFBB12FBAF2170071C863 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D7BBFBBD2FBB455B0071C863 /* View */,
+				D7BBFBB42FBAFABA0071C863 /* CategoryViewModel.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		D7BBFBBD2FBB455B0071C863 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D7BBFBB22FBAF23E0071C863 /* CategoryView.swift */,
+				D7BBFBBE2FBB45710071C863 /* CategoryCellView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D7CA077E2FB86C470056E5B5 /* Utils */ = {
@@ -563,6 +605,7 @@
 				D7F67CF52FADE5780019D95B /* PrimaryButton.swift in Sources */,
 				D7D0CDFF2FAB33EC00F985A5 /* Store.swift in Sources */,
 				D7F90E342FB2FF4500DFF280 /* AlertManager.swift in Sources */,
+				D746280C2FB9B643000F8DF6 /* SideMenu.swift in Sources */,
 				D79B4EC62FB70C0A0086E38A /* StoreCardView.swift in Sources */,
 				D78401BA2FB5AC1100F68FB5 /* MainTabView.swift in Sources */,
 				D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */,
@@ -574,10 +617,12 @@
 				D72DC1192FAA225400194998 /* ContentView.swift in Sources */,
 				D79F2EC12FAC88AD007EE77B /* AppError.swift in Sources */,
 				D7D0CDFD2FAB2B1D00F985A5 /* UserDTO.swift in Sources */,
+				D7BBFBBC2FBAFE110071C863 /* CategoryRepository.swift in Sources */,
 				D7F67CEE2FADE1030019D95B /* CustomTextField.swift in Sources */,
 				D7CA07802FB86C5E0056E5B5 /* UserDefaultsManager.swift in Sources */,
 				D7D0CDFA2FAB2A9500F985A5 /* User.swift in Sources */,
 				D78401BF2FB5B14E00F68FB5 /* LoaderManager.swift in Sources */,
+				D7BBFBBF2FBB45710071C863 /* CategoryCellView.swift in Sources */,
 				D7D0CE0E2FAB748100F985A5 /* CategoryRepositoryProtocol.swift in Sources */,
 				D7F67CF72FADE60C0019D95B /* SecondaryButton.swift in Sources */,
 				D79B4EC82FB70F900086E38A /* HomeViewModel.swift in Sources */,
@@ -592,8 +637,11 @@
 				D7E30ABF2FB1D6710003C862 /* SignUpUseCase.swift in Sources */,
 				D7E30ABD2FB1D1A60003C862 /* SignUpRequestModel.swift in Sources */,
 				D74C98082FB0726300C1394E /* SignUpView.swift in Sources */,
+				D7BBFBB72FBAFB2D0071C863 /* CategoryUseCase.swift in Sources */,
 				D79F2EC42FAC8A58007EE77B /* FirebaseAuthRepository.swift in Sources */,
 				D7D0CE012FAB396900F985A5 /* StoreDTO.swift in Sources */,
+				D7BBFBB32FBAF23E0071C863 /* CategoryView.swift in Sources */,
+				D7BBFBB52FBAFABA0071C863 /* CategoryViewModel.swift in Sources */,
 				D7F67CF12FADE29A0019D95B /* AppTheme.swift in Sources */,
 				D79C419D2FAF079C00D8BC9A /* LoginUseCase.swift in Sources */,
 				D7D0CE082FAB72FC00F985A5 /* AuthRepositoryProtocol.swift in Sources */,

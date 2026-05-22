@@ -9,5 +9,4 @@ import Foundation
 
 protocol CategoryRepositoryProtocol {
    func fetchAllCategoriesRequest() async throws -> [Category]
-   func fetchCategoryRequest(categoryId: String) async throws -> Category
 }

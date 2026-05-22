@@ -23,7 +23,7 @@ struct MainTabView: View {
             .tag(0)
 
          // ── Tab 2: Categories (placeholder for now) ──
-         Text("Categories Coming Soon")
+         CategoryView(viewModel: CategoryViewModel())
             .tabItem {
                Label("Categories", systemImage: "square.grid.2x2.fill")
             }
