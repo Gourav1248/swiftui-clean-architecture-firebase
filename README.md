@@ -124,5 +124,7 @@ More improvements and features will be added gradually while exploring better ar
 Open to suggestions, improvements, and feedback while continuing to learn and improve the architecture structure.
 👨‍💻 Author
 Gourav Joshi
+
 LinkedIn: https://www.linkedin.com/in/gourav-joshi-68309b50/
+
 GitHub: https://github.com/Gourav1248/swiftui-clean-architecture-firebase
