@@ -16,7 +16,7 @@ final class CategoryViewModel: ObservableObject {
    private let useCase: CategoryUseCase
 
 
-   init(useCase: CategoryUseCase = CategoryUseCase(repository: CategoryRepository())) {
+   init(useCase: CategoryUseCase = CategoryUseCase(categoryRepository: CategoryRepository())) {
       self.useCase = useCase
    }
 
