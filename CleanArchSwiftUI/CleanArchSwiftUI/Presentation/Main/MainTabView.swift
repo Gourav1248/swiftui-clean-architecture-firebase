@@ -11,6 +11,7 @@ struct MainTabView: View {
 
    // Tracks which tab is currently selected (0 = Home, 1 = Categories, 2 = Settings)
    @State private var selectedTab: Int = 0
+   let container: DependencyContainer
 
    var body: some View {
       TabView(selection: $selectedTab) {
@@ -23,7 +24,7 @@ struct MainTabView: View {
             .tag(0)
 
          // ── Tab 2: Categories (placeholder for now) ──
-         CategoryView(viewModel: CategoryViewModel())
+         CategoryView(viewModel: container.makeCategoryViewModel())
             .tabItem {
                Label("Categories", systemImage: "square.grid.2x2.fill")
             }
@@ -35,6 +36,11 @@ struct MainTabView: View {
                Label("Settings", systemImage: "gearshape.fill")
             }
             .tag(2)
+         StoreMapView(viewModel: container.makeStoreMapViewModel())
+            .tabItem {
+               Label("Store Locations", systemImage: "map.fill")
+            }
+            .tag(2)
       }
       .tint(.indigo) // Active tab icon color
    }
@@ -42,6 +48,6 @@ struct MainTabView: View {
 
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabView()
+       MainTabView(container: DependencyContainer())
     }
 }

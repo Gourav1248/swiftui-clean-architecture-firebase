@@ -25,7 +25,7 @@ struct AppCoordinator: View {
                }
             } else if UserDefaultsManager.shared.isLoggedIn {
                //HomeView()
-               MainTabView()
+               MainTabView(container: DependencyContainer())
             } else {
                NavigationStack(path: $router.path) {
                   LoginView()
