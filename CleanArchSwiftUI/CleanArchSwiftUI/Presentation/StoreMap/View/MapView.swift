@@ -52,7 +52,7 @@ struct MapView: UIViewRepresentable {
          }
 
          if let markerView = view as? MKMarkerAnnotationView {
-            markerView.markerTintColor = UIColor(Color.accentColor)
+            markerView.markerTintColor = UIColor(AppTheme.lavender)
             markerView.glyphImage = UIImage(systemName: "storefront.fill")
          }
 

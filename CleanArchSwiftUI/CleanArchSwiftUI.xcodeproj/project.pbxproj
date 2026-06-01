@@ -18,6 +18,8 @@
 		D74C98062FB0584900C1394E /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98052FB0584900C1394E /* AppCoordinator.swift */; };
 		D74C98082FB0726300C1394E /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98072FB0726300C1394E /* SignUpView.swift */; };
 		D74C980A2FB0754C00C1394E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98092FB0754C00C1394E /* SignUpViewModel.swift */; };
+		D7587EDA2FCD923A0063AF50 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7587ED92FCD923A0063AF50 /* FirebaseAuth */; };
+		D7587EDC2FCD923A0063AF50 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7587EDB2FCD923A0063AF50 /* FirebaseFirestore */; };
 		D78401BA2FB5AC1100F68FB5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401B92FB5AC1100F68FB5 /* MainTabView.swift */; };
 		D78401BC2FB5B0E000F68FB5 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401BB2FB5B0E000F68FB5 /* Loader.swift */; };
 		D78401BF2FB5B14E00F68FB5 /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401BE2FB5B14E00F68FB5 /* LoaderManager.swift */; };
@@ -39,6 +41,20 @@
 		D7AD40932FC41C68002FF8BA /* StoreAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40922FC41C68002FF8BA /* StoreAnnotation.swift */; };
 		D7AD40952FC4255E002FF8BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40942FC4255E002FF8BA /* DependencyContainer.swift */; };
 		D7AD40972FC4419C002FF8BA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40962FC4419C002FF8BA /* MapView.swift */; };
+		D7AD40992FC48D3B002FF8BA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7AD40982FC48D3B002FF8BA /* GoogleService-Info.plist */; };
+		D7AD409C2FC49210002FF8BA /* MockAuthRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD409B2FC49210002FF8BA /* MockAuthRepository.swift */; };
+		D7AD409E2FC49223002FF8BA /* MockStoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD409D2FC49223002FF8BA /* MockStoreRepository.swift */; };
+		D7AD40A02FC4923E002FF8BA /* MockCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD409F2FC4923E002FF8BA /* MockCategoryRepository.swift */; };
+		D7AD40A22FC4926A002FF8BA /* MockLoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40A12FC4926A002FF8BA /* MockLoginUseCase.swift */; };
+		D7AD40A42FC49283002FF8BA /* MockSignUpCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40A32FC49283002FF8BA /* MockSignUpCase.swift */; };
+		D7AD40A62FC492AF002FF8BA /* MockStoresUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40A52FC492AF002FF8BA /* MockStoresUseCase.swift */; };
+		D7AD40A82FC492C1002FF8BA /* MockCategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40A72FC492C1002FF8BA /* MockCategoryUseCase.swift */; };
+		D7AD40AB2FC492ED002FF8BA /* TestDataFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40AA2FC492ED002FF8BA /* TestDataFactory.swift */; };
+		D7AD40AE2FC49310002FF8BA /* LoginViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40AD2FC49310002FF8BA /* LoginViewModelTest.swift */; };
+		D7AD40B02FC49325002FF8BA /* LoginUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40AF2FC49325002FF8BA /* LoginUseCaseTest.swift */; };
+		D7AD40B32FC4934D002FF8BA /* SignUpUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40B22FC4934D002FF8BA /* SignUpUseCaseTest.swift */; };
+		D7AD40B62FC49386002FF8BA /* StoresUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40B52FC49386002FF8BA /* StoresUseCaseTest.swift */; };
+		D7AD40B92FC4939C002FF8BA /* CategoryUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AD40B82FC4939C002FF8BA /* CategoryUseCaseTest.swift */; };
 		D7BBFBB32FBAF23E0071C863 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBB22FBAF23E0071C863 /* CategoryView.swift */; };
 		D7BBFBB52FBAFABA0071C863 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBB42FBAFABA0071C863 /* CategoryViewModel.swift */; };
 		D7BBFBBC2FBAFE110071C863 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BBFBBB2FBAFE110071C863 /* CategoryRepository.swift */; };
@@ -119,6 +135,20 @@
 		D7AD40922FC41C68002FF8BA /* StoreAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAnnotation.swift; sourceTree = "<group>"; };
 		D7AD40942FC4255E002FF8BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		D7AD40962FC4419C002FF8BA /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D7AD40982FC48D3B002FF8BA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D7AD409B2FC49210002FF8BA /* MockAuthRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthRepository.swift; sourceTree = "<group>"; };
+		D7AD409D2FC49223002FF8BA /* MockStoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStoreRepository.swift; sourceTree = "<group>"; };
+		D7AD409F2FC4923E002FF8BA /* MockCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryRepository.swift; sourceTree = "<group>"; };
+		D7AD40A12FC4926A002FF8BA /* MockLoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLoginUseCase.swift; sourceTree = "<group>"; };
+		D7AD40A32FC49283002FF8BA /* MockSignUpCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSignUpCase.swift; sourceTree = "<group>"; };
+		D7AD40A52FC492AF002FF8BA /* MockStoresUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStoresUseCase.swift; sourceTree = "<group>"; };
+		D7AD40A72FC492C1002FF8BA /* MockCategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCategoryUseCase.swift; sourceTree = "<group>"; };
+		D7AD40AA2FC492ED002FF8BA /* TestDataFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataFactory.swift; sourceTree = "<group>"; };
+		D7AD40AD2FC49310002FF8BA /* LoginViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTest.swift; sourceTree = "<group>"; };
+		D7AD40AF2FC49325002FF8BA /* LoginUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCaseTest.swift; sourceTree = "<group>"; };
+		D7AD40B22FC4934D002FF8BA /* SignUpUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCaseTest.swift; sourceTree = "<group>"; };
+		D7AD40B52FC49386002FF8BA /* StoresUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresUseCaseTest.swift; sourceTree = "<group>"; };
+		D7AD40B82FC4939C002FF8BA /* CategoryUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUseCaseTest.swift; sourceTree = "<group>"; };
 		D7BBFBB22FBAF23E0071C863 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		D7BBFBB42FBAFABA0071C863 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		D7BBFBBB2FBAFE110071C863 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
@@ -164,6 +194,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7587EDA2FCD923A0063AF50 /* FirebaseAuth in Frameworks */,
+				D7587EDC2FCD923A0063AF50 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +212,7 @@
 		D72DC1132FAA225400194998 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D7AD40982FC48D3B002FF8BA /* GoogleService-Info.plist */,
 				D72DC1152FAA225400194998 /* CleanArchSwiftUIApp.swift */,
 				D72DC1162FAA225400194998 /* ContentView.swift */,
 				D74C98052FB0584900C1394E /* AppCoordinator.swift */,
@@ -247,6 +280,13 @@
 			path = "Side Menu";
 			sourceTree = "<group>";
 		};
+		D7587ED82FCD923A0063AF50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D78401B82FB5ABCD00F68FB5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,6 +342,7 @@
 				D7AC05122FA8C30C0028A872 /* CleanArchSwiftUITests */,
 				D7AC051C2FA8C30C0028A872 /* CleanArchSwiftUIUITests */,
 				D7AC05002FA8C30A0028A872 /* Products */,
+				D7587ED82FCD923A0063AF50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,6 +381,12 @@
 		D7AC05122FA8C30C0028A872 /* CleanArchSwiftUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D7AD40B72FC4938C002FF8BA /* Category */,
+				D7AD40B42FC49375002FF8BA /* Stores */,
+				D7AD40B12FC49338002FF8BA /* SignUp */,
+				D7AD40AC2FC492FF002FF8BA /* Login */,
+				D7AD40A92FC492D8002FF8BA /* Helpers */,
+				D7AD409A2FC491F9002FF8BA /* Mocks */,
 				D7AC05132FA8C30C0028A872 /* CleanArchSwiftUITests.swift */,
 			);
 			path = CleanArchSwiftUITests;
@@ -387,6 +434,61 @@
 				D7AD40922FC41C68002FF8BA /* StoreAnnotation.swift */,
 			);
 			path = Mapper;
+			sourceTree = "<group>";
+		};
+		D7AD409A2FC491F9002FF8BA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD409B2FC49210002FF8BA /* MockAuthRepository.swift */,
+				D7AD409D2FC49223002FF8BA /* MockStoreRepository.swift */,
+				D7AD409F2FC4923E002FF8BA /* MockCategoryRepository.swift */,
+				D7AD40A12FC4926A002FF8BA /* MockLoginUseCase.swift */,
+				D7AD40A32FC49283002FF8BA /* MockSignUpCase.swift */,
+				D7AD40A52FC492AF002FF8BA /* MockStoresUseCase.swift */,
+				D7AD40A72FC492C1002FF8BA /* MockCategoryUseCase.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		D7AD40A92FC492D8002FF8BA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD40AA2FC492ED002FF8BA /* TestDataFactory.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D7AD40AC2FC492FF002FF8BA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD40AD2FC49310002FF8BA /* LoginViewModelTest.swift */,
+				D7AD40AF2FC49325002FF8BA /* LoginUseCaseTest.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		D7AD40B12FC49338002FF8BA /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD40B22FC4934D002FF8BA /* SignUpUseCaseTest.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		D7AD40B42FC49375002FF8BA /* Stores */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD40B52FC49386002FF8BA /* StoresUseCaseTest.swift */,
+			);
+			path = Stores;
+			sourceTree = "<group>";
+		};
+		D7AD40B72FC4938C002FF8BA /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				D7AD40B82FC4939C002FF8BA /* CategoryUseCaseTest.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		D7BBFBB12FBAF2170071C863 /* Category */ = {
@@ -546,6 +648,10 @@
 				D7AC05112FA8C30C0028A872 /* PBXTargetDependency */,
 			);
 			name = CleanArchSwiftUITests;
+			packageProductDependencies = (
+				D7587ED92FCD923A0063AF50 /* FirebaseAuth */,
+				D7587EDB2FCD923A0063AF50 /* FirebaseFirestore */,
+			);
 			productName = CleanArchSwiftUITests;
 			productReference = D7AC050F2FA8C30C0028A872 /* CleanArchSwiftUITests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -621,6 +727,7 @@
 			files = (
 				D7AC050A2FA8C30C0028A872 /* Preview Assets.xcassets in Resources */,
 				D72DC1202FAA22A000194998 /* Assets.xcassets in Resources */,
+				D7AD40992FC48D3B002FF8BA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -704,7 +811,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7AD40B62FC49386002FF8BA /* StoresUseCaseTest.swift in Sources */,
+				D7AD40B92FC4939C002FF8BA /* CategoryUseCaseTest.swift in Sources */,
+				D7AD40A62FC492AF002FF8BA /* MockStoresUseCase.swift in Sources */,
+				D7AD40B32FC4934D002FF8BA /* SignUpUseCaseTest.swift in Sources */,
+				D7AD40A22FC4926A002FF8BA /* MockLoginUseCase.swift in Sources */,
+				D7AD409E2FC49223002FF8BA /* MockStoreRepository.swift in Sources */,
 				D7AC05142FA8C30C0028A872 /* CleanArchSwiftUITests.swift in Sources */,
+				D7AD40A42FC49283002FF8BA /* MockSignUpCase.swift in Sources */,
+				D7AD40A82FC492C1002FF8BA /* MockCategoryUseCase.swift in Sources */,
+				D7AD409C2FC49210002FF8BA /* MockAuthRepository.swift in Sources */,
+				D7AD40B02FC49325002FF8BA /* LoginUseCaseTest.swift in Sources */,
+				D7AD40A02FC4923E002FF8BA /* MockCategoryRepository.swift in Sources */,
+				D7AD40AE2FC49310002FF8BA /* LoginViewModelTest.swift in Sources */,
+				D7AD40AB2FC492ED002FF8BA /* TestDataFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1168,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D72DC10A2FAA1C4700194998 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		D7587ED92FCD923A0063AF50 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D72DC10A2FAA1C4700194998 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D7587EDB2FCD923A0063AF50 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D72DC10A2FAA1C4700194998 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
