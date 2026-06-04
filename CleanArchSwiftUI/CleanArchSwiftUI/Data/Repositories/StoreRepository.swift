@@ -21,7 +21,7 @@ final class StoreRepository: StoreRepositoryProtocol {
             // Step 1: Document data lo + documentID inject karo
             var data = document.data()
             data["id"] = document.documentID
-            print("store document.documentID = \(document.documentID)")
+           // print("store document.documentID = \(document.documentID)")
             // Step 2: Timestamp → Date convert karo manually sirf yahan
             if let timestamp = data["createdAt"] as? Timestamp {
                data["createdAt"] = timestamp.dateValue().timeIntervalSince1970

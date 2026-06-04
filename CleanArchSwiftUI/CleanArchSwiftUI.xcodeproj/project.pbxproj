@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D703C6A52FCEDF1D00817A8B /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D703C6A42FCEDF1D00817A8B /* HomeViewModelTests.swift */; };
 		D70FA63E2FC2E32A0041E196 /* CategoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70FA63D2FC2E32A0041E196 /* CategoryUseCase.swift */; };
 		D72DC10C2FAA1C4700194998 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D72DC10B2FAA1C4700194998 /* FirebaseAuth */; };
 		D72DC10E2FAA1C4700194998 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D72DC10D2FAA1C4700194998 /* FirebaseFirestore */; };
@@ -103,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D703C6A42FCEDF1D00817A8B /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
 		D70FA63D2FC2E32A0041E196 /* CategoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryUseCase.swift; sourceTree = "<group>"; };
 		D72DC1152FAA225400194998 /* CleanArchSwiftUIApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanArchSwiftUIApp.swift; sourceTree = "<group>"; };
 		D72DC1162FAA225400194998 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				D7AD40B52FC49386002FF8BA /* StoresUseCaseTest.swift */,
+				D703C6A42FCEDF1D00817A8B /* HomeViewModelTests.swift */,
 			);
 			path = Stores;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 				D7AD40A62FC492AF002FF8BA /* MockStoresUseCase.swift in Sources */,
 				D7AD40B32FC4934D002FF8BA /* SignUpUseCaseTest.swift in Sources */,
 				D7AD40A22FC4926A002FF8BA /* MockLoginUseCase.swift in Sources */,
+				D703C6A52FCEDF1D00817A8B /* HomeViewModelTests.swift in Sources */,
 				D7AD409E2FC49223002FF8BA /* MockStoreRepository.swift in Sources */,
 				D7AC05142FA8C30C0028A872 /* CleanArchSwiftUITests.swift in Sources */,
 				D7AD40A42FC49283002FF8BA /* MockSignUpCase.swift in Sources */,

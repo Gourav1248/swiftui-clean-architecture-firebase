@@ -33,6 +33,7 @@ class HomeViewModel: ObservableObject {
    }
 
    func fetchAllStores() async {
+      print("HomeViewModel fetchAllStores")
       isLoading = true
       do {
          stores = try await storeUseCase.fetchAllStoresRequest()

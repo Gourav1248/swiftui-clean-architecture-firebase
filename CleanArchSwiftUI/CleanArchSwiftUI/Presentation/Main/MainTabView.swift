@@ -13,6 +13,23 @@ struct MainTabView: View {
    @State private var selectedTab: Int = 0
    let container: DependencyContainer
 
+   @StateObject private var categoryVM: CategoryViewModel
+   @StateObject private var mapVM: StoreMapViewModel
+
+
+   init(container: DependencyContainer) {
+
+      self.container = container
+
+      _categoryVM = StateObject(
+         wrappedValue: container.makeCategoryViewModel()
+      )
+
+      _mapVM = StateObject(
+         wrappedValue: container.makeStoreMapViewModel()
+      )
+   }
+
    var body: some View {
       TabView(selection: $selectedTab) {
 
@@ -24,19 +41,14 @@ struct MainTabView: View {
             .tag(0)
 
          // ── Tab 2: Categories (placeholder for now) ──
-         CategoryView(viewModel: container.makeCategoryViewModel())
+         CategoryView(viewModel: categoryVM)
             .tabItem {
                Label("Categories", systemImage: "square.grid.2x2.fill")
             }
             .tag(1)
 
          // ── Tab 3: Settings (placeholder for now) ──
-         Text("Settings Coming Soon")
-            .tabItem {
-               Label("Settings", systemImage: "gearshape.fill")
-            }
-            .tag(2)
-         StoreMapView(viewModel: container.makeStoreMapViewModel())
+         StoreMapView(viewModel: mapVM)
             .tabItem {
                Label("Store Locations", systemImage: "map.fill")
             }

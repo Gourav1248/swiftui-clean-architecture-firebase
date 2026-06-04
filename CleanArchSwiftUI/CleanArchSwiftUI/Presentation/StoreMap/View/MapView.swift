@@ -23,14 +23,33 @@ struct MapView: UIViewRepresentable {
    }
 
    func updateUIView(_ mapView: MKMapView, context: Context) {
-      // ✅ Sirf region change hone par update karo
+
+      print("MapView updateUIView called")
       if !mapView.region.isEqual(to: region) {
          mapView.setRegion(region, animated: true)
       }
 
-      // ✅ Annotations update karo
-      mapView.removeAnnotations(mapView.annotations)
-      mapView.addAnnotations(annotations)
+      let currentStoreIds = Set(
+         mapView.annotations.compactMap {
+            ($0 as? StoreAnnotation)?.id
+         }
+      )
+
+      let newStoreIds = Set(
+         annotations.map { $0.id }
+      )
+
+      if currentStoreIds != newStoreIds {
+
+         let storeAnnotations = mapView.annotations.filter {
+            $0 is StoreAnnotation
+         }
+
+         mapView.removeAnnotations(storeAnnotations)
+         mapView.addAnnotations(annotations)
+
+         print("🔄 Map annotations refreshed")
+      }
    }
 
    func makeCoordinator() -> Coordinator {

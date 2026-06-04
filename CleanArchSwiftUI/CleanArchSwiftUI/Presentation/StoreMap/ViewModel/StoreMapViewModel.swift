@@ -25,7 +25,10 @@ final class StoreMapViewModel: ObservableObject {
    private let storesUseCase: StoresUseCase
 
    init(storesUseCase: StoresUseCase = StoresUseCase(repository: StoreRepository())) {
+
       self.storesUseCase = storesUseCase
+
+      print("🔥 StoreMapViewModel Created \(ObjectIdentifier(self))")
    }
 
    // MARK: Intent
@@ -71,5 +74,9 @@ final class StoreMapViewModel: ObservableObject {
          longitudeDelta: min((lons.max()! - lons.min()!) * 1.4 + 0.5, 60)
       )
       return MKCoordinateRegion(center: center, span: span)
+   }
+
+   deinit {
+      print("💀 StoreMapViewModel Destroyed \(ObjectIdentifier(self))")
    }
 }
