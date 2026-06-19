@@ -21,13 +21,13 @@
 		D74C980A2FB0754C00C1394E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74C98092FB0754C00C1394E /* SignUpViewModel.swift */; };
 		D7587EDA2FCD923A0063AF50 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7587ED92FCD923A0063AF50 /* FirebaseAuth */; };
 		D7587EDC2FCD923A0063AF50 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7587EDB2FCD923A0063AF50 /* FirebaseFirestore */; };
+		D75B348B2FE50D19004F8618 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B34872FE50D18004F8618 /* HomeViewModel.swift */; };
+		D75B348C2FE50D19004F8618 /* StoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B34892FE50D19004F8618 /* StoreCardView.swift */; };
+		D75B348D2FE50D19004F8618 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75B348A2FE50D19004F8618 /* HomeView.swift */; };
 		D78401BA2FB5AC1100F68FB5 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401B92FB5AC1100F68FB5 /* MainTabView.swift */; };
 		D78401BC2FB5B0E000F68FB5 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401BB2FB5B0E000F68FB5 /* Loader.swift */; };
 		D78401BF2FB5B14E00F68FB5 /* LoaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401BE2FB5B14E00F68FB5 /* LoaderManager.swift */; };
 		D78401C12FB5B20200F68FB5 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78401C02FB5B20200F68FB5 /* LoaderView.swift */; };
-		D79B4EC42FB70B760086E38A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4EC32FB70B760086E38A /* HomeView.swift */; };
-		D79B4EC62FB70C0A0086E38A /* StoreCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4EC52FB70C0A0086E38A /* StoreCardView.swift */; };
-		D79B4EC82FB70F900086E38A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4EC72FB70F900086E38A /* HomeViewModel.swift */; };
 		D79B4ECA2FB712650086E38A /* StoresUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4EC92FB712650086E38A /* StoresUseCase.swift */; };
 		D79B4ECC2FB717310086E38A /* StoreRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79B4ECB2FB717310086E38A /* StoreRepository.swift */; };
 		D79C419D2FAF079C00D8BC9A /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79C419C2FAF079C00D8BC9A /* LoginUseCase.swift */; };
@@ -113,13 +113,13 @@
 		D74C98052FB0584900C1394E /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		D74C98072FB0726300C1394E /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		D74C98092FB0754C00C1394E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		D75B34872FE50D18004F8618 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		D75B34892FE50D19004F8618 /* StoreCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreCardView.swift; sourceTree = "<group>"; };
+		D75B348A2FE50D19004F8618 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		D78401B92FB5AC1100F68FB5 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		D78401BB2FB5B0E000F68FB5 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		D78401BE2FB5B14E00F68FB5 /* LoaderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderManager.swift; sourceTree = "<group>"; };
 		D78401C02FB5B20200F68FB5 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
-		D79B4EC32FB70B760086E38A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		D79B4EC52FB70C0A0086E38A /* StoreCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreCardView.swift; sourceTree = "<group>"; };
-		D79B4EC72FB70F900086E38A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D79B4EC92FB712650086E38A /* StoresUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoresUseCase.swift; sourceTree = "<group>"; };
 		D79B4ECB2FB717310086E38A /* StoreRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreRepository.swift; sourceTree = "<group>"; };
 		D79C419C2FAF079C00D8BC9A /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
@@ -289,6 +289,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D75B34862FE50D18004F8618 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				D75B34872FE50D18004F8618 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D75B34882FE50D19004F8618 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D75B34892FE50D19004F8618 /* StoreCardView.swift */,
+				D75B348A2FE50D19004F8618 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D78401B82FB5ABCD00F68FB5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,9 +326,8 @@
 		D79B4EC22FB70B670086E38A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D79B4EC32FB70B760086E38A /* HomeView.swift */,
-				D79B4EC52FB70C0A0086E38A /* StoreCardView.swift */,
-				D79B4EC72FB70F900086E38A /* HomeViewModel.swift */,
+				D75B34882FE50D19004F8618 /* View */,
+				D75B34862FE50D18004F8618 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -758,10 +774,11 @@
 				D7AD40932FC41C68002FF8BA /* StoreAnnotation.swift in Sources */,
 				D7F67CF52FADE5780019D95B /* PrimaryButton.swift in Sources */,
 				D7D0CDFF2FAB33EC00F985A5 /* Store.swift in Sources */,
+				D75B348B2FE50D19004F8618 /* HomeViewModel.swift in Sources */,
 				D7F90E342FB2FF4500DFF280 /* AlertManager.swift in Sources */,
 				D7AD408D2FC41971002FF8BA /* StoreMapView.swift in Sources */,
 				D746280C2FB9B643000F8DF6 /* SideMenu.swift in Sources */,
-				D79B4EC62FB70C0A0086E38A /* StoreCardView.swift in Sources */,
+				D75B348C2FE50D19004F8618 /* StoreCardView.swift in Sources */,
 				D70FA63E2FC2E32A0041E196 /* CategoryUseCase.swift in Sources */,
 				D78401BA2FB5AC1100F68FB5 /* MainTabView.swift in Sources */,
 				D7F67D012FAE03690019D95B /* LoginViewModel.swift in Sources */,
@@ -770,7 +787,6 @@
 				D72DC1182FAA225400194998 /* CleanArchSwiftUIApp.swift in Sources */,
 				D7AD40952FC4255E002FF8BA /* DependencyContainer.swift in Sources */,
 				D78401BC2FB5B0E000F68FB5 /* Loader.swift in Sources */,
-				D79B4EC42FB70B760086E38A /* HomeView.swift in Sources */,
 				D72DC1192FAA225400194998 /* ContentView.swift in Sources */,
 				D7AD40972FC4419C002FF8BA /* MapView.swift in Sources */,
 				D79F2EC12FAC88AD007EE77B /* AppError.swift in Sources */,
@@ -784,7 +800,6 @@
 				D7BBFBBF2FBB45710071C863 /* CategoryCellView.swift in Sources */,
 				D7D0CE0E2FAB748100F985A5 /* CategoryRepositoryProtocol.swift in Sources */,
 				D7F67CF72FADE60C0019D95B /* SecondaryButton.swift in Sources */,
-				D79B4EC82FB70F900086E38A /* HomeViewModel.swift in Sources */,
 				D78401C12FB5B20200F68FB5 /* LoaderView.swift in Sources */,
 				D79B4ECC2FB717310086E38A /* StoreRepository.swift in Sources */,
 				D74C98062FB0584900C1394E /* AppCoordinator.swift in Sources */,
@@ -797,6 +812,7 @@
 				D7E30ABD2FB1D1A60003C862 /* SignUpRequestModel.swift in Sources */,
 				D74C98082FB0726300C1394E /* SignUpView.swift in Sources */,
 				D79F2EC42FAC8A58007EE77B /* FirebaseAuthRepository.swift in Sources */,
+				D75B348D2FE50D19004F8618 /* HomeView.swift in Sources */,
 				D7D0CE012FAB396900F985A5 /* StoreDTO.swift in Sources */,
 				D7BBFBB32FBAF23E0071C863 /* CategoryView.swift in Sources */,
 				D7BBFBB52FBAFABA0071C863 /* CategoryViewModel.swift in Sources */,

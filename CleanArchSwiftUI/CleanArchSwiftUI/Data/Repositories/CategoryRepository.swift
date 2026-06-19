@@ -19,18 +19,14 @@ final class CategoryRepository: CategoryRepositoryProtocol {
 
    func fetchAllCategoriesRequest() async throws -> [Category] {
       let obCategory = try await db.collection("categories")
-                       //.whereField("isActive", isEqualTo: true)
-                       //.order(by: "createdAt", descending: true)
                        .getDocuments()
 
-     // print("Ob catgory = \(obCategory.documents.count)")
 
       return obCategory.documents.compactMap { document in
          do {
             // Step 1: Document data lo + documentID inject karo
             var data = document.data()
             data["id"] = document.documentID
-          //  print("Category document.documentID = \(document.documentID)")
             // Step 2: Timestamp → Date convert karo manually sirf yahan
             if let timestamp = data["createdAt"] as? Timestamp {
                data["createdAt"] = timestamp.dateValue().timeIntervalSince1970

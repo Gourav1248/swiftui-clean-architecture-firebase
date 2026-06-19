@@ -90,8 +90,3 @@ extension MKCoordinateRegion {
    }
 }
 
-//struct MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView()
-//    }
-//}

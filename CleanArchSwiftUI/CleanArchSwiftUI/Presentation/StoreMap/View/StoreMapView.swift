@@ -103,8 +103,3 @@ private struct StorePinView: View {
    }
 }
 
-//struct StoreMapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StoreMapView()
-//    }
-//}
